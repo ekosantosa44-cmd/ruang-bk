@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pembuat Ruang BK Digital Otomatis</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f1f5f9; padding: 40px 20px; display: flex; justify-content: center; }
+        .box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
+        h2 { color: #059669; margin-bottom: 15px; }
+        label { font-size: 0.9rem; font-weight: 600; color: #334155; }
+        input { width: 100%; padding: 10px; margin: 8px 0 20px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        button { background: #059669; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        button:hover { background: #047857; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>⚡ Buat File index.html Otomatis</h2>
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Masukkan URL Google Apps Script milikmu di bawah untuk membuat file website yang siap pakai secara otomatis.</p>
+        
+        <label for="url">URL Web App Google Apps Script:</label>
+        <input type="text" id="url" placeholder="https://script.google.com/macros/s/.../exec" required>
+        
+        <button onclick="generateAndDownload()">🚀 Generate & Unduh index.html</button>
+    </div>
+
+    <script>
+        function generateAndDownload() {
+            const urlInput = document.getElementById('url').value.trim();
+            if(!urlInput) {
+                alert('Silakan masukkan URL Web App Google Apps Script kamu terlebih dahulu!');
+                return;
+            }
+
+            const htmlContent = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang BK Digital - SMPN 2 Belawang</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f1f5f9; color: #334155; line-height: 1.6; }
+        nav { background-color: #ffffff; padding: 15px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: bold; color: #059669; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .nav-links a { text-decoration: none; color: #64748b; margin-left: 15px; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #059669; }
+        .hero { background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-curhat { background-color: white; color: #059669; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; transition: all 0.2s; }
+        .btn-curhat:hover { transform: translateY(-2px); background-color: #f8fafc; }
+        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+        .card { background-color: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .card-title { font-size: 1.4rem; color: #1e293b; margin-bottom: 15px; font-weight: bold; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; color: #475569; }
+        .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
+        .radio-label { display: flex; align-items: center; gap: 8px; font-weight: normal; font-size: 0.9rem; cursor: pointer; }
+        input[type="text"], input[type="tel"], select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-size: 0.9rem; }
+        input:focus, select:focus, textarea:focus { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.15); }
+        .btn-submit { background-color: #059669; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        .btn-submit:hover { background-color: #047857; }
+        .privacy-box { background-color: #ecfdf5; border-left: 4px solid #10b981; padding: 12px; border-radius: 4px; font-size: 0.85rem; color: #047857; margin-bottom: 20px; }
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 25px 20px; font-size: 0.85rem; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">🏫 BK SMPN 2 Belawang</div>
+        <div class="nav-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#curhat">Ruang Curhat</a>
+        </div>
+    </nav>
+    <div id="beranda" class="hero">
+        <h1>Ruang BK Digital</h1>
+        <p>Tempat aman, nyaman, dan rahasia untuk bertumbuh, berbagi cerita, dan meraih prestasi hebatmu!</p>
+        <a href="#curhat" class="btn-curhat">💬 Mulai Curhat Online</a>
+    </div>
+    <div class="container">
+        <div id="curhat" class="card">
+            <div class="card-title">Kotak Curhat Online 💬</div>
+            <div class="privacy-box">🔒 <strong>Jaminan Kerahasiaan:</strong> Pesan terenkripsi langsung ke Google Sheets Guru BK.</div>
+            <form id="formCurhat">
+                <div class="form-group">
+                    <label>Identitas: *</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="identitas" value="Nama Asli" checked> Nama Asli</label>
+                        <label class="radio-label"><input type="radio" name="identitas" value="Anonim"> Anonim / Samaran</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nama Asli / Samaran: *</label>
+                    <input type="text" name="nama" required placeholder="Nama kamu...">
+                </div>
+                <div class="form-group">
+                    <label>Kelas: *</label>
+                    <select name="kelas" required>
+                        <option value="Kelas 7">Kelas 7</option>
+                        <option value="Kelas 8">Kelas 8</option>
+                        <option value="Kelas 9">Kelas 9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Kategori Masalah: *</label>
+                    <select name="kategori" required>
+                        <option value="Masalah belajar">Masalah belajar</option>
+                        <option value="Pertemanan">Pertemanan</option>
+                        <option value="Keluarga">Keluarga</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ceritamu: *</label>
+                    <textarea name="cerita" rows="4" required placeholder="Tuliskan di sini..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp (Opsional):</label>
+                    <input type="tel" name="whatsapp" placeholder="08123456789">
+                </div>
+                <button type="submit" id="btnKirim" class="btn-submit">🚀 Kirim Cerita Saya</button>
+            </form>
+        </div>
+    </div>
+    <footer>&copy; Ruang BK Digital - SMPN 2 Belawang</footer>
+    <script>
+        const scriptURL = '${urlInput}';
+        const form = document.forms['formCurhat'];
+        const btnKirim = document.getElementById('btnKirim');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnKirim.disabled = true;
+            btnKirim.innerText = 'Mengirim...';
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(res => {
+                    alert('Terima kasih! Ceritamu berhasil terkirim ke Guru BK.');
+                    btnKirim.disabled = false;
+                    btnKirim.innerText = '🚀 Kirim Cerita Saya';
+                    form.reset();
+                })
+                .catch(err => {
+                    alert('Gagal mengirim cerita.');
+                    btnKirim.disabled = false;
+                    btnKirim.innerText = '🚀 Kirim Cerita Saya';
+                });
+        });
+    <\/script>
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
